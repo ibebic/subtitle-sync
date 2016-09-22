@@ -1,0 +1,16 @@
+{
+  "extends": "xo",
+  "rules": {
+    "indent": [ "error", 2 ],
+    "no-alert": [ "off" ],
+    "curly": [ "error", "multi-line" ],
+    "template-curly-spacing": [ "error", "always" ],
+    "object-curly-spacing": [ "error", "always", {
+      "arraysInObjects": false,
+      "objectsInObjects": false
+    }]
+  },
+  "env": {
+    "node": true
+  }
+}

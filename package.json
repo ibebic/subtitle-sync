@@ -1,0 +1,23 @@
+{
+  "name": "subtitle-sync",
+  "version": "1.0.0",
+  "description": "Subtitle sync",
+  "main": "server.js",
+  "bin": {
+    "conv": "cli.js",
+    "hpb": "cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "file-system": "^2.2.1",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-xo": "^0.15.4"
+  }
+}
