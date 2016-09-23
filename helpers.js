@@ -1,8 +1,8 @@
 'use strict';
 const moment = require('moment');
-let times = {};
 // ajdust the time of each timestamp according to the passed argument
 function timeSync(timeStamps, args) {
+  let times = {};
   for (let i = 0; i < timeStamps.length; i++) {
     times[i] = moment(timeStamps[i], 'HH:mm:ss,SSS');
     if (args[0] === '-') {

@@ -17,9 +17,7 @@ let timeStamps = srt.match(/\d{2}:\d{2}:\d{2},\d{3}/g);
 timeStamps = timeSync(timeStamps, args);
 // replace all timestamps from srt with it's corresponding ajusted timestamp
 let i = 0;
-srt = srt.replace(/\d{2}:\d{2}:\d{2},\d{3}/g, function () {
-  return timeStamps[i++];
-});
+srt = srt.replace(/\d{2}:\d{2}:\d{2},\d{3}/g, () => timeStamps[i++]);
 // write the modified srt to a new file
 fs.writeFile('./convFile.srt', srt, function (err) {
   if (err) {
