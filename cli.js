@@ -11,13 +11,8 @@ let srt = fs.readFileSync('./sampleFile.srt', 'utf8', function (err, data) {
   }
   return data;
 });
-// find all timestamps (hh:mm:ss:msmsmsm) from srt and store them in timeStamps
-let timeStamps = srt.match(/\d{2}:\d{2}:\d{2},\d{3}/g);
-// ajdust all timestamps
-timeStamps = timeSync(timeStamps, args);
 // replace all timestamps from srt with it's corresponding ajusted timestamp
-let i = 0;
-srt = srt.replace(/\d{2}:\d{2}:\d{2},\d{3}/g, () => timeStamps[i++]);
+srt = srt.replace(/\d{2}:\d{2}:\d{2},\d{3}/g, timeStamp => timeSync(timeStamp, args));
 // write the modified srt to a new file
 fs.writeFile('./convFile.srt', srt, function (err) {
   if (err) {
