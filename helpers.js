@@ -10,17 +10,17 @@ function timeSync(timeStamps, args) {
     } else {
       times[i] = times[i].add(args[1], 'milliseconds');
     }
-    let hours = times[i].hours().toString();
-    while (hours.length < 2) hours = '0' + hours;
-    let minutes = times[i].minutes().toString();
-    while (minutes.length < 2) minutes = '0' + minutes;
-    let seconds = times[i].seconds().toString();
-    while (seconds.length < 2) seconds = '0' + seconds;
-    let milliseconds = times[i].milliseconds().toString();
-    while (milliseconds.length < 3) milliseconds = '0' + milliseconds;
+    let hours = trailingZeros(times[i].hours().toString(), 2);
+    let minutes = trailingZeros(times[i].minutes().toString(), 2);
+    let seconds = trailingZeros(times[i].seconds().toString(), 2);
+    let milliseconds = trailingZeros(times[i].milliseconds().toString(), 3);
     timeStamps[i] = (hours + ':' + minutes + ':' + seconds + ',' + milliseconds);
   }
   return timeStamps;
+}
+function trailingZeros(digits, numb) {
+  while (digits.length < numb) digits = '0' + digits;
+  return digits;
 }
 module.exports = {
   timeSync
